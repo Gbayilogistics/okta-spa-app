@@ -1,5 +1,7 @@
+// Full React SPA App using Okta Embedded Sign-In Widget (with redirect from / to /login)
+
 import React, { useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { OktaSignIn } from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
@@ -12,7 +14,7 @@ const SignInWidget = () => {
     const signIn = new OktaSignIn({
       baseUrl: 'https://trial-8649110.okta.com',
       clientId: '0oaqveppuk37C2h7Q697',
-      redirectUri: 'http://localhost:3000/login/callback',
+      redirectUri: 'https://okta-spa-app.onrender.com/login/callback',
       authParams: {
         pkce: true,
         issuer: 'https://trial-8649110.okta.com/oauth2/default',
@@ -63,6 +65,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<SignInWidget />} />
         <Route path="/login/callback" element={<LoginCallback />} />
         <Route path="/dashboard" element={<Dashboard />} />
