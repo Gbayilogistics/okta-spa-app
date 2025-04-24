@@ -1,5 +1,3 @@
-// Full React SPA App using Okta Embedded Sign-In Widget (with redirect from / to /login)
-
 import React, { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { OktaSignIn } from '@okta/okta-signin-widget';
@@ -47,7 +45,7 @@ const SignInWidget = () => {
     return () => signIn.remove();
   }, [navigate]);
 
-  return <div ref={widgetRef} />;
+  return <div ref={widgetRef} style={{ minHeight: '400px' }} />;
 };
 
 // Dummy component for post-login view
