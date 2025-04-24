@@ -67,6 +67,7 @@ const App = () => {
         <Route path="/login" element={<SignInWidget />} />
         <Route path="/login/callback" element={<LoginCallback />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );
