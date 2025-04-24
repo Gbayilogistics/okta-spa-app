@@ -19,7 +19,7 @@ const SignInWidget = () => {
         display: 'page'
       },
       features: {
-        registration: true,
+        registration: true
       },
       logo: '/logo.png',
       i18n: {
@@ -53,9 +53,9 @@ const Dashboard = () => {
   return <h2>Welcome to your dashboard!</h2>;
 };
 
-// Dummy login callback component (normally used with okta-react)
+// Dummy login callback component
 const LoginCallback = () => {
-  return <h2>Login callback handled here (if using okta-react SDK)</h2>;
+  return <h2>Login callback handled here</h2>;
 };
 
 // Main App with routing
@@ -72,4 +72,3 @@ const App = () => {
 };
 
 export default App; // Export the full SPA App
-
