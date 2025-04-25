@@ -23,12 +23,15 @@ const SignInWidget = () => {
       },
       registration: {
         parseSchema: (schema, onSuccess) => {
+          console.log('📥 Registration Schema:', schema);
           onSuccess(schema);
         },
         preSubmit: (postData, onSuccess) => {
+          console.log('📤 Registration Data:', postData);
           onSuccess(postData);
         },
         postSubmit: (response, onSuccess) => {
+          console.log('✅ Registration Successful:', response);
           window.location.assign('/login');
         }
       },
@@ -37,7 +40,9 @@ const SignInWidget = () => {
         en: {
           'primaryauth.title': 'Sign in to Your Account'
         }
-      }
+      },
+      // Enable debug logging
+      devMode: true
     });
 
     signIn.renderEl(
@@ -49,7 +54,7 @@ const SignInWidget = () => {
         }
       },
       (err) => {
-        console.error('SignIn Widget error: ', err);
+        console.error('❌ SignIn Widget Error:', err);
       }
     );
 
