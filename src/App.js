@@ -21,6 +21,17 @@ const SignInWidget = () => {
       features: {
         registration: true
       },
+      registration: {
+        parseSchema: (schema, onSuccess) => {
+          onSuccess(schema);
+        },
+        preSubmit: (postData, onSuccess) => {
+          onSuccess(postData);
+        },
+        postSubmit: (response, onSuccess) => {
+          window.location.assign('/login');
+        }
+      },
       logo: '/logo.png',
       i18n: {
         en: {
